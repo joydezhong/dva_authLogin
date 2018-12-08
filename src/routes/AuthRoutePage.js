@@ -1,6 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
 
+import { message } from 'antd';
+
+const success = (mesg) => {
+  message.success(mesg);
+};
+
 class AuthRoutePage extends React.Component{
 	constructor(props){
 		super(props)
@@ -8,7 +14,8 @@ class AuthRoutePage extends React.Component{
 
 	handleLoginOut = () => {
 		localStorage.clear()
-		this.props.history.push('./login')
+		success("操作成功")
+		setTimeout(()=>this.props.history.push('./login') ,1500)
 	}
 
 	render(){
